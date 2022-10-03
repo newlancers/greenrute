@@ -1,46 +1,16 @@
-# vue-schedule
+# VueSchedule
 
-This template should help get you started developing with Vue 3 in Vite.
+Сайт для будь-якого шкільного розкладу, дані беруться з JSON, можете клонувати, змінювати на свої, та використовувати в особистих цілях. Приймаються будь-які корисні доповнення (наприклад - додаткові піктограми, або переробка існуючих)
 
-## Recommended IDE Setup
+Сайт сворений за допомогою Vite, Vue 3 та TailwindCSS
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Буду радий допомозі з написанням unit-тестів
 
-## Type Support for `.vue` Imports in TS
+--------------------------------------------------
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+A site for any school schedule, data is taken from JSON, you can clone, change to your own, and use for personal purposes. Any useful additions are accepted (for example, additional icons, or reworking of existing ones)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+The site is built using Vite, Vue 3 and TailwindCSS
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+I will be happy to help with writing unit tests
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-yarn
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-yarn dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
-```

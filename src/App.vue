@@ -1,47 +1,31 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { getLesson, type Lessons } from './helpers/lessons'
+import { onMounted, ref } from 'vue'
+import { getTime } from './helpers/date'
+import json from '@/lessons.json'
+import Header from '@/components/Header.vue'
+import Table from '@/components/Table.vue'
+
+const lessons = ref(json as Lessons)
+const time = ref(getTime(lessons.value))
+const lesson = ref(getLesson(lessons.value))
+
+const update = (): void => {
+  time.value = getTime(lessons.value)
+  lesson.value = getLesson(lessons.value)
+}
+
+onMounted(() => {
+  update()
+  setInterval(() => {
+    update()
+  }, 1000)
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="min-h-screen flex flex-col bg-gray-100 dark:bg-zinc-900">
+    <Header :lesson="lesson" />
+    <Table :lessons="lessons" :time="time" />
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

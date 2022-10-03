@@ -13,10 +13,12 @@ jobs:
           corepack enable
           yarn
           yarn build
-          git config --global user.name ${{ github.actor }}
-          git config --global user.email ${{ github.actor }}@greenrute.com
-          git init
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@greenrute.com
+          if [ ! -d ".git" ]; then git init; fi
           git checkout -B gh-pages
           git add -A
           git commit -m "Розгортання $(date +"%T %D")"
-          git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-pages
+          git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-
+          cd ..
+          rm -rf dist

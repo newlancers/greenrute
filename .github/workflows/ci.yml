@@ -1,0 +1,19 @@
+name: ci-deploying
+run-name: ${{ github.actor }} is deploying GreenRute release
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: corepack enable
+      - run: yarn
+      - run: yarn build
+      - run: git init
+      - run: git checkout -B gh-pages
+      - run: git add -A
+      - run: git commit -m "Розгортання $(date +"%T %D")"
+      - run: git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-pages

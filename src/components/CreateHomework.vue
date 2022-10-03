@@ -12,7 +12,7 @@ import TransitionCollapse from '@/components/TransitionCollapse.vue'</script>
       <ChevronRightIcon :class="open ? 'rotate-90 transform' : ''" class="h-5 w-5 text-gray-500 dark:text-zinc-300 transition-transform"/>
     </DisclosureButton>
     <TransitionCollapse>
-      <DisclosurePanel as="form" class="px-4 pt-4 pb-2 text-sm bg-gray-50 dark:bg-zinc-800 transition-border rounded-b-xl p-2" @submit.prevent>
+      <DisclosurePanel as="form" class="px-4 pt-4 pb-2 text-sm bg-gray-50 dark:bg-zinc-800 transition-border rounded-b-xl p-2" @submit.prevent="">
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-zinc-100" for="task">Завдання</label>
           <div class="mt-1">

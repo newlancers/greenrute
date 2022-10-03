@@ -21,6 +21,6 @@ jobs:
           git checkout -B gh-pages
           git add .
           git commit -am "Розгортання $(date +"%T %D")"
-          git push -f gh-pages
+          git push -f --set-upstream gh-pages gh-pages
           cd ..
           rm -rf dist

@@ -13,12 +13,13 @@ jobs:
           corepack enable yarn
           yarn
           yarn build
+          cd dist
           git config user.name ${{ github.actor }}
           git config user.email ${{ github.actor }}@greenrute.com
           if [ ! -d ".git" ]; then git init; fi
           git checkout -B gh-pages
           git add .
           git commit -am "Розгортання $(date +"%T %D")"
-          git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-
+          git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-pages
           cd ..
           rm -rf dist

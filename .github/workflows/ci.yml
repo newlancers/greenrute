@@ -21,6 +21,6 @@ jobs:
           git checkout -B gh-pages
           git add .
           git commit -am "Розгортання $(date +"%T %D")"
-          git push -f --set-upstream origin gh-pages
+          git push -f https://github.com/newlancers/greenrute.git gh-pages:gh-pages
           cd ..
           rm -rf dist

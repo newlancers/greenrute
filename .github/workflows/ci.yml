@@ -14,8 +14,9 @@ jobs:
           yarn
           yarn build
           cd dist
-          git config user.name ${{ github.actor }}
-          git config user.email ${{ github.actor }}@greenrute.com
+          git config --global user.name ${{ github.actor }}
+          git config --global user.email ${{ github.actor }}@greenrute.com
+          git config --global init.defaultBranch main
           if [ ! -d ".git" ]; then git init; fi
           git checkout -B gh-pages
           git add .

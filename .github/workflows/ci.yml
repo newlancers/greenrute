@@ -10,15 +10,15 @@ jobs:
         with:
           node-version: '16'
       - run: |
-          corepack enable
+          corepack enable yarn
           yarn
           yarn build
           git config user.name ${{ github.actor }}
           git config user.email ${{ github.actor }}@greenrute.com
           if [ ! -d ".git" ]; then git init; fi
           git checkout -B gh-pages
-          git add -A
-          git commit -m "Розгортання $(date +"%T %D")"
+          git add .
+          git commit -am "Розгортання $(date +"%T %D")"
           git push -f git@github.com:newlancers/greenrute.git gh-pages:gh-
           cd ..
           rm -rf dist

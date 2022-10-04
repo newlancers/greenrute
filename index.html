@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-  <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-  <link href="/site.webmanifest" rel="manifest">
-  <link color="#6366f1" href="/safari-pinned-tab.svg" rel="mask-icon">
-  <link href="/favicon.ico" rel="shortcut icon">
-  <meta content="#2b5797" name="msapplication-TileColor">
-  <meta content="/browserconfig.xml" name="msapplication-config">
-  <meta content="#ffffff" name="theme-color">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#16a34a">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
 
-  <meta content="Розклад" property="og:title"/>
+  <meta content="GreenRute — твій шкільний помічник" property="og:title"/>
+  <meta content="Сайт для шкільного розкладу. При реєстрації користувач створює кімнату або під'єднується до існуючої" property="og:description">
   <meta content="website" property="og:type"/>
-  <meta content="data:image/png;base64,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"
-        property="og:image"/>
+  <meta content="https://greenrute.com/screenshot-1200x630.png" property="og:image"/>
 
-  <title>Розклад 2.0</title>
+  <title>GreenRute — твій шкільний помічник</title>
 </head>
 <body>
 <div id="app"></div>

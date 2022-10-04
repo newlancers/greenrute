@@ -4,7 +4,6 @@ import { onMounted, ref } from 'vue'
 import { getTime } from './helpers/date'
 import json from '@/lessons.json'
 import Header from '@/components/Header.vue'
-import Table from '@/components/Table.vue'
 
 const lessons = ref(json as Lessons)
 const time = ref(getTime(lessons.value))
@@ -26,6 +25,6 @@ onMounted(() => {
 <template>
   <div class="min-h-screen flex flex-col bg-gray-100 dark:bg-zinc-900">
     <Header :lesson="lesson" />
-    <Table :lessons="lessons" :time="time" />
+    <RouterView :lessons="lessons" :time="time" />
   </div>
 </template>

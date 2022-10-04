@@ -15,7 +15,8 @@
     "@heroicons/vue": "^2.0.11",
     "@tailwindcss/forms": "^0.5.3",
     "pinia": "^2.0.21",
-    "vue": "^3.2.38"
+    "vue": "^3.2.38",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@types/jsdom": "^20.0.0",

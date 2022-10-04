@@ -1,6 +1,9 @@
 name: ci-deploying
 run-name: ${{ github.actor }} is deploying GreenRute release
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest

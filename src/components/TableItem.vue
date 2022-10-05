@@ -2,6 +2,7 @@
 import type {Day} from '@/helpers/lessons'
 import Emoji from '@/components/Emoji.vue'
 import Details from '@/components/Details.vue'
+import {useHomeworkStore} from '@/stores/homework'
 
 interface Props {
   day: Day
@@ -9,11 +10,33 @@ interface Props {
   current: boolean
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const homework = useHomeworkStore()
+
+interface HomeworkPreview {
+  text: string
+  done: boolean
+}
+
+const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
+  const lesson = homework.homework[props.dayIdx]?.[lessonIdx]?.[0]
+
+  if (typeof lesson !== 'object') {
+    return {
+      text: '',
+      done: false,
+    }
+  }
+  return {
+    text: '(' + lesson.task + ')',
+    done: lesson.done,
+  }
+}
 </script>
 
 <template>
-  <div class="overflow-hidden shadow ring-1 ring-black dark:ring-zinc-600 ring-opacity-5 dark:ring-opacity-80 md:rounded-lg" :class="day.lessons.length - 1 ? 'bg-white dark:bg-zinc-800' : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'">
+  <div :class="day.lessons.length - 1 ? 'bg-white dark:bg-zinc-800' : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'" class="overflow-hidden shadow ring-1 ring-black dark:ring-zinc-600 ring-opacity-5 dark:ring-opacity-80 md:rounded-lg">
     <table class="max-w-full divide-y divide-gray-300 dark:divide-zinc-700 table-fixed">
       <thead class="bg-gray-50 dark:bg-zinc-800">
       <tr>
@@ -29,6 +52,7 @@ defineProps<Props>()
           {{ (lessonIdx + 1) + '. ' }}
           <Emoji :lesson="lesson"/>
           {{ ' ' + lesson }}
+          <span :class="getHomeworkPreview(lessonIdx).done ? 'line-through' : ''">{{ ' ' + getHomeworkPreview(lessonIdx).text }}</span>
         </td>
         <td class="relative whitespace-nowrap py-1.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-2.5">
           <Details v-slot="{ clickHandler }" :day-idx="dayIdx" :lesson-idx="lessonIdx" :lesson-name="lesson">

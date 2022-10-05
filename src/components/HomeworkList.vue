@@ -17,7 +17,7 @@ const status: Ref<boolean[]> = ref([])
 
 const homework = useHomeworkStore()
 
-if (typeof homework.homework[props.dayIdx][props.lessonIdx] !== 'undefined') {
+if (typeof homework.homework[props.dayIdx]?.[props.lessonIdx] !== 'undefined') {
   for (const task of homework.homework[props.dayIdx][props.lessonIdx]) {
     status.value[task.id] = task.done
   }

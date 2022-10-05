@@ -31,7 +31,7 @@ defineProps<Props>()
           {{ ' ' + lesson }}
         </td>
         <td class="relative whitespace-nowrap py-1.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-2.5">
-          <Details v-slot="{ clickHandler }" :day-inx="dayIdx" :lesson-idx="lessonIdx" :lesson-name="lesson">
+          <Details v-slot="{ clickHandler }" :day-idx="dayIdx" :lesson-idx="lessonIdx" :lesson-name="lesson">
             <button class="text-green-600 hover:text-green-900 dark:hover:text-green-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-opacity-50 focus-visible:ring-green-600" @click="clickHandler">Деталі</button>
           </Details>
         </td>

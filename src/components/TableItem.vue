@@ -26,6 +26,7 @@ defineProps<Props>()
       <tbody class="bg-white dark:bg-zinc-800">
       <tr v-for="(lesson, lessonIdx) in day.lessons" :key="lesson.length + lessonIdx" :class="lessonIdx % 2 === 0 ? undefined : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'">
         <td class="truncate max-w-0 w-full py-1.5 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-zinc-100 sm:pl-2.5">
+          {{ (lessonIdx + 1) + '. ' }}
           <Emoji :lesson="lesson"/>
           {{ ' ' + lesson }}
         </td>

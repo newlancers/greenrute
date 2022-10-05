@@ -7,6 +7,7 @@ import CreateHomework from '@/components/CreateHomework.vue'
 import HomeworkList from '@/components/HomeworkList.vue'
 import LoaderIcon from '@/components/icons/LoaderIcon.vue'
 import {CheckIcon} from '@heroicons/vue/24/outline'
+import {useHomeworkStore} from '@/stores/homework'
 
 interface Props {
   dayInx: number
@@ -17,6 +18,8 @@ interface Props {
 defineProps<Props>()
 
 type Loading = 'true' | 'false' | 'done'
+
+const homework = useHomeworkStore()
 
 const open: Ref<boolean> = ref(false)
 const loading: Ref<Loading> = ref('false')
@@ -57,7 +60,7 @@ const addHomework = (event: Event): void => {
                     {{ ' ' + lessonName }}
                   </DialogTitle>
                   <div class="mt-2">
-                    <HomeworkList/>
+                    <HomeworkList :day-idx="dayInx" :lesson-idx="lessonIdx" />
                   </div>
                   <form v-if="true" @submit.prevent="addHomework">
                     <strong class="block mt-8 text-base font-medium leading-6 text-gray-900 dark:text-zinc-50">Створити домашнє завдання</strong>

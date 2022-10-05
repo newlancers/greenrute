@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import CreateHomeworkCollapse from '@/components/CreateHomeworkCollapse.vue'
 import CreateHomeworkForm from '@/components/CreateHomeworkForm.vue'
-import {ref, Ref} from 'vue'
+import {ref, type Ref} from 'vue'
 import {useHomeworkStore} from '@/stores/homework'
 
 interface Props {

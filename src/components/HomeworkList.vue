@@ -17,6 +17,12 @@ const status: Ref<boolean[]> = ref([])
 
 const homework = useHomeworkStore()
 
+if (typeof homework.homework[props.dayIdx][props.lessonIdx] !== 'undefined') {
+  for (const task of homework.homework[props.dayIdx][props.lessonIdx]) {
+    status.value[task.id] = task.done
+  }
+}
+
 const deleteHomework = (taskId: number): void => {
   loading.value[taskId] = true
   homework.remove(props.dayIdx, props.lessonIdx, taskId)
@@ -25,8 +31,8 @@ const deleteHomework = (taskId: number): void => {
     })
 }
 
-const updateStatus = (taskIdx: number): void => {
-  homework.changeStatus(props.dayIdx, props.lessonIdx, taskIdx, status.value[taskIdx])
+const updateStatus = (taskId: number): void => {
+  homework.changeStatus(props.dayIdx, props.lessonIdx, taskId, status.value[taskId])
 }
 </script>
 
@@ -39,7 +45,6 @@ const updateStatus = (taskIdx: number): void => {
           <input
             :id="'task-' + task.id"
             v-model="status[task.id]"
-            :checked="homework.homework[dayIdx][lessonIdx].filter(i => i.id === task.id)[0].done"
             :aria-describedby="task.description ? 'task-description-' + task.id : undefined"
             :name="'task-' + task.id"
             class="h-4 w-4 cursor-pointer rounded border-gray-300 dark:border-zinc-600 text-green-600 dark:bg-zinc-900 dark:checked:bg-current dark:checked:border-transparent focus:ring-green-500 dark:ring-offset-zinc-900"

@@ -46,7 +46,9 @@ export const useHomeworkStore = defineStore('homework', () => {
   // TODO: додати модальне вікно для підтвердження видалення
   const remove = (dayIdx: number, lessonIdx: number, taskId: number): Promise<null> => {
     setTimeout(() => {
-      homework.value[dayIdx][lessonIdx].splice(homework.value[dayIdx][lessonIdx].indexOf(homework.value[dayIdx][lessonIdx].filter(i => i.id === taskId)[0]), 1)
+      // TODO: придумати, як краще реалізувати видалення завдань
+      // @ts-ignore
+      homework.value[dayIdx][lessonIdx].filter(i => i.id === taskId)[0] = null
 
       localStorage.setItem('homework', JSON.stringify(homework.value))
     }, 200)

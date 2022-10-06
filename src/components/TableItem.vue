@@ -29,7 +29,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
     }
   }
   return {
-    text: '(' + lesson.task + ' ' + (lesson.description ?? '') + ')',
+    text: '(' + lesson.task + (lesson.description ? ' ' + lesson.description : '') + ')',
     done: lesson.done,
   }
 }

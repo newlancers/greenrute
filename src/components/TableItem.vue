@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type {Day} from '@/helpers/lessons'
+import type {Day, Lesson} from '@/helpers/lessons'
 import Emoji from '@/components/Emoji.vue'
 import Details from '@/components/Details.vue'
 import {useHomeworkStore} from '@/stores/homework'
@@ -8,6 +8,7 @@ interface Props {
   day: Day
   dayIdx: number
   current: boolean
+  currentLesson: Lesson
 }
 
 const props = defineProps<Props>()
@@ -22,15 +23,12 @@ interface HomeworkPreview {
 const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
   const lesson = homework.homework[props.dayIdx]?.[lessonIdx]?.[0]
 
-  if (typeof lesson !== 'object') {
-    return {
-      text: '',
-      done: false,
-    }
-  }
-  return {
+  return lesson ? {
     text: '(' + lesson.task + (lesson.description ? ' ' + lesson.description : '') + ')',
     done: lesson.done,
+  } : {
+    text: '',
+    done: false,
   }
 }
 </script>
@@ -48,8 +46,14 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
       </thead>
       <tbody class="bg-white dark:bg-zinc-800">
       <tr v-for="(lesson, lessonIdx) in day.lessons" :key="lesson.length + lessonIdx" :class="lessonIdx % 2 === 0 ? undefined : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'">
-        <td class="truncate max-w-0 w-full py-1.5 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-zinc-100 sm:pl-2.5">
-          {{ (lessonIdx + 1) + '. ' }}
+        <td :class="current && lesson === currentLesson.name ? 'font-bold' : ''" class="truncate max-w-0 w-full py-1.5 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-zinc-100 sm:pl-2.5">
+          <!-- TODO: доробити бейдж -->
+          <!-- <span class="relative" :class="current && lesson === currentLesson.name ? '' : ''">
+            <span class="block absolute rounded-full bg-green-600 -inset-y-[0.03rem] aspect-square left-[50%] -translate-x-[50%]"></span>
+            <span class="relative">{{ (lessonIdx + 1) + '.' }}</span>
+          </span>
+          {{ ' ' }} -->
+          {{ (lessonIdx + 1) + '.' }}
           <Emoji :lesson="lesson"/>
           {{ ' ' + lesson }}
           <span :class="getHomeworkPreview(lessonIdx).done ? 'line-through' : ''">{{ ' ' + getHomeworkPreview(lessonIdx).text }}</span>

@@ -13,10 +13,10 @@ export const useHomeworkStore = defineStore('homework', () => {
   const homework: Ref<Homework[][][]> = ref(JSON.parse(localStorage.getItem('homework') as string) as Homework[][][] || [])
 
   const add = (dayIdx: number, lessonIdx: number, task: string, description?: string | undefined): Promise<number> => {
-    if (typeof homework.value[dayIdx] === 'undefined') {
+    if (typeof homework.value[dayIdx] === 'undefined' || homework.value[dayIdx] === null) {
       homework.value[dayIdx] = []
     }
-    if (typeof homework.value[dayIdx][lessonIdx] === 'undefined') {
+    if (typeof homework.value[dayIdx][lessonIdx] === 'undefined' || homework.value[dayIdx][lessonIdx] === null) {
       homework.value[dayIdx][lessonIdx] = []
     }
     const id = homework.value[dayIdx][lessonIdx].length + Math.floor(Math.random() * 100)
@@ -47,8 +47,7 @@ export const useHomeworkStore = defineStore('homework', () => {
   const remove = (dayIdx: number, lessonIdx: number, taskId: number): Promise<null> => {
     setTimeout(() => {
       // TODO: придумати, як краще реалізувати видалення завдань
-      // @ts-ignore
-      homework.value[dayIdx][lessonIdx].filter(i => i.id === taskId)[0] = null
+      homework.value[dayIdx][lessonIdx].splice(homework.value[dayIdx][lessonIdx].indexOf(homework.value[dayIdx][lessonIdx].filter(i => i.id === taskId)[0]), 1)
 
       localStorage.setItem('homework', JSON.stringify(homework.value))
     }, 200)

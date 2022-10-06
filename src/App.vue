@@ -25,6 +25,6 @@ onMounted(() => {
 <template>
   <div class="min-h-screen flex flex-col bg-gray-100 dark:bg-zinc-900">
     <Header :lesson="lesson" />
-    <RouterView :lessons="lessons" :time="time" />
+    <RouterView :lessons="lessons" :time="time" :lesson="lesson" />
   </div>
 </template>

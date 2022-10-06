@@ -48,7 +48,8 @@ const updateStatus = (taskId: number): void => {
             :aria-describedby="task.description ? 'task-description-' + task.id : undefined"
             :name="'task-' + task.id"
             class="h-4 w-4 cursor-pointer rounded border-gray-300 dark:border-zinc-600 text-green-600 dark:bg-zinc-900 dark:checked:bg-current dark:checked:border-transparent focus:ring-green-500 dark:ring-offset-zinc-900"
-            type="checkbox" @change="updateStatus(task.id)"
+            type="checkbox"
+            @change="updateStatus(task.id)"
           />
         </div>
         <div :class="homework.homework[dayIdx][lessonIdx].filter(i => i.id === task.id)[0].done ? 'line-through' : ''" class="ml-3 text-sm">

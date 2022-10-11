@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type {Day, Lesson} from '@/helpers/lessons'
-import Emoji from '@/components/Emoji.vue'
 import Details from '@/components/Details.vue'
 import {useHomeworkStore} from '@/stores/homework'
+import TwemojiLesson from '@/components/TwemojiLesson.vue'
 
 interface Props {
   day: Day
@@ -54,7 +54,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
           </span>
           {{ ' ' }} -->
           {{ (lessonIdx + 1) + '.' }}
-          <Emoji :lesson="lesson"/>
+          <TwemojiLesson :lesson="lesson" />
           {{ ' ' + lesson }}
           <span :class="getHomeworkPreview(lessonIdx).done ? 'line-through' : ''">{{ ' ' + getHomeworkPreview(lessonIdx).text }}</span>
         </td>

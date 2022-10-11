@@ -23,7 +23,7 @@ defineProps<Props>()
   <span v-else-if="lesson === 'Історія України'">🏛️</span>
   <span v-else-if="lesson === 'Всесвітня історія' || lesson === 'Історія'">🏰️</span>
   <span v-else-if="lesson === 'Фізкультура'">⚽️</span>
-  <span v-else-if="lesson === 'Геометрія'">📐️</span>
+  <span v-else-if="lesson === 'Геометрія'">📐</span>
   <span v-else-if="lesson === 'Трудове навчання'">🔨️</span>
   <span v-else-if="lesson === 'Німецька мова'">🇩🇪️</span>
   <span v-else-if="lesson === 'Фізика'">🔭️</span>

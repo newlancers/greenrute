@@ -2,9 +2,9 @@
 import {ref, type Ref} from 'vue'
 import {Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot} from '@headlessui/vue'
 import type {LessonName} from '@/helpers/lessons'
-import Emoji from '@/components/Emoji.vue'
 import HomeworkList from '@/components/HomeworkList.vue'
 import CreateHomework from '@/components/icons/CreateHomework.vue'
+import TwemojiLesson from '@/components/TwemojiLesson.vue'
 
 interface Props {
   dayIdx: number
@@ -37,7 +37,7 @@ const openModal = (): void => {
               <div>
                 <div>
                   <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900 dark:text-zinc-50">
-                    <Emoji :lesson="lessonName"/>
+                    <TwemojiLesson :lesson="lessonName"/>
                     {{ ' ' + lessonName }}
                   </DialogTitle>
                   <div class="mt-2">

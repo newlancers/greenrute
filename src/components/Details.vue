@@ -3,7 +3,7 @@ import {ref, type Ref} from 'vue'
 import {Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot} from '@headlessui/vue'
 import type {LessonName} from '@/helpers/lessons'
 import HomeworkList from '@/components/HomeworkList.vue'
-import CreateHomework from '@/components/icons/CreateHomework.vue'
+import CreateHomework from '@/components/CreateHomework.vue'
 import TwemojiLesson from '@/components/TwemojiLesson.vue'
 
 interface Props {
@@ -52,7 +52,9 @@ const openModal = (): void => {
                 <button
                   class="inline-flex w-full justify-center rounded-md border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-4 py-2 text-base font-medium text-gray-700 dark:text-zinc-50 shadow-sm dark:shadow hover:bg-gray-50 dark:hover:bg-zinc-800 dark:hover:bg-opacity-25 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 sm:text-sm"
                   type="button"
-                  @click="open = false">Закрити
+                  @click="open = false"
+                >
+                  Закрити
                 </button>
               </div>
             </DialogPanel>

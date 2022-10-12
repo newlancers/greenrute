@@ -41,7 +41,7 @@ defineProps<Props>()
         </div>
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <div class="relative rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm">
+            <div v-if="lesson?.name" class="relative rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm">
               <span>{{ lesson.name}}</span>
             </div>
           </div>

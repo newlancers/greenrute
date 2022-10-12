@@ -3,6 +3,7 @@ import type {Lesson, Lessons} from '@/helpers/lessons'
 import TableItem from '@/components/TableItem.vue'
 import type {TimeResponse} from '@/helpers/date'
 import LoaderIcon from '@/components/icons/LoaderIcon.vue'
+import {watch} from 'vue'
 
 interface Props {
   lessons: Lessons
@@ -10,7 +11,13 @@ interface Props {
   time: TimeResponse
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+watch(props.lessons, value => {
+  if (value?.days?.length > 0) {
+    scrollTo(0, 0)
+  }
+})
 </script>
 
 <template>

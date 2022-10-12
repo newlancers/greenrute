@@ -23,6 +23,7 @@ onMounted(() => {
       setInterval(() => {
         update()
       }, 1000)
+      scrollTo(0, 0)
     })
 })
 </script>

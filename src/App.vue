@@ -47,7 +47,7 @@ onMounted(() => {
     <Header :lesson="lesson"/>
     <RouterView :lesson="lesson" :lessons="lessons" :time="time"/>
   </div>
-  <div v-else class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-zinc-900">
+  <div v-else class="h-screen flex items-center justify-center bg-gray-100 dark:bg-zinc-900">
     <LoaderIcon class="w-6 h-6 motion-safe:animate-loader" />
   </div>
 </template>

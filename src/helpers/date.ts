@@ -33,6 +33,7 @@ export const dateFromMarker = (m: MarkerTime): Date => {
    )
 }
 
+// noinspection JSUnusedGlobalSymbols
 export const timeToEnd = (n: MarkerTime, e: MarkerTime): number | undefined => {
    const now = dateFromMarker(n).getTime()
    const end = dateFromMarker(e).getTime()

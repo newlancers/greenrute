@@ -1,5 +1,6 @@
 import type {MarkerTime} from './date'
 
+// noinspection JSUnusedGlobalSymbols
 export type DayName = 'Понеділок' | 'Вівторок' | 'Середа' | 'Четвер' | "П'ятниця"
 export type LessonName =
   'Хімія'

@@ -19,7 +19,7 @@ jobs:
       - name: Install all dependencies
         run: |
           corepack enable yarn
-          yarn
+          yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build

@@ -54,7 +54,7 @@ const updateStatus = (taskId: number): void => {
         </div>
         <div :class="homework.homework[dayIdx][lessonIdx].filter(i => i.id === task.id)[0].done ? 'line-through' : ''" class="ml-3 text-sm">
           <label :for="'task-' + task.id" class="font-medium cursor-pointer text-gray-700 dark:text-zinc-200">{{ task.task }}</label>
-          <span v-if="task.description" :id="'task-description-' + task.id" class="text-gray-500 dark:text-zinc-400"><span class="sr-only">{{ task.task }}</span>{{ ' ' + task.description }}</span>
+          <span v-if="task.description" :id="'task-description-' + task.id" class="text-gray-500 dark:text-zinc-400">{{ ' ' + task.description }}</span>
         </div>
       </div>
       <button :aria-disabled="loading[task.id]" :disabled="loading[task.id]" class="p-0.5 text-gray-400 dark:text-zinc-500 hover:text-red-600 dark:hover:text-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-opacity-50 focus-visible:ring-red-600 transition-colors" @click="deleteHomework(task.id)">

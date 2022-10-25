@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 const store = useThemeStore()
 
 const dark = computed(() => (
-  window.matchMedia('(prefers-color-scheme: dark)').matches
+  store.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches
 ))
 </script>
 

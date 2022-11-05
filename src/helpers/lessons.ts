@@ -95,17 +95,17 @@ export const getLesson = (lessons: Lessons): Lesson => {
     name: 'Перерва',
   }
 
-  if (schedule.start >= t || t >= schedule.end) {
-    return {
-      index: null,
-      name: 'Уроків немає',
-    }
-  }
-
   if (typeof lessons.days[d] === 'undefined') {
     return {
       index: null,
       name: 'Сьогодні вихідний',
+    }
+  }
+
+  if (schedule.start >= t || t >= schedule.end) {
+    return {
+      index: null,
+      name: 'Уроків немає',
     }
   }
 

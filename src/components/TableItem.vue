@@ -35,7 +35,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
 
 <template>
   <div :class="day.lessons.length - 1 ? 'bg-white dark:bg-zinc-800' : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'" class="overflow-hidden shadow ring-1 ring-black dark:ring-zinc-600 ring-opacity-5 dark:ring-opacity-80 md:rounded-lg">
-    <table class="max-w-full divide-y divide-gray-300 dark:divide-zinc-700 table-fixed">
+    <table class="max-w-full divide-y divide-gray-200 dark:divide-zinc-700 table-fixed">
       <thead class="bg-white dark:bg-zinc-800">
       <tr>
         <th class="py-2.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-2.5" scope="col">{{ day.name }}</th>

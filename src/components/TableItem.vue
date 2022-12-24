@@ -46,7 +46,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
       </thead>
       <tbody class="bg-white dark:bg-zinc-800">
       <tr v-for="(lesson, lessonIdx) in day.lessons" :key="lesson.length + lessonIdx" :class="lessonIdx % 2 === 0 ? undefined : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'">
-        <td :class="current && lesson === currentLesson.name ? 'font-bold' : ''" class="truncate max-w-0 w-full py-1.5 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-zinc-100 sm:pl-2.5">
+        <td :class="current && lesson === currentLesson.name ? 'font-bold' : ''" class="truncate max-w-0 w-full py-2 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-zinc-100 sm:pl-2.5">
           <!-- TODO: доробити бейдж -->
           <!-- <span class="relative" :class="current && lesson === currentLesson.name ? '' : ''">
             <span class="block absolute rounded-full bg-green-600 -inset-y-[0.03rem] aspect-square left-[50%] -translate-x-[50%]"></span>
@@ -58,7 +58,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
           {{ ' ' + lesson }}
           <span :class="getHomeworkPreview(lessonIdx).done ? 'line-through' : ''">{{ ' ' + getHomeworkPreview(lessonIdx).text }}</span>
         </td>
-        <td class="relative whitespace-nowrap py-1.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-2.5">
+        <td class="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-2.5">
           <Details v-slot="{ clickHandler }" :day-idx="dayIdx" :lesson-idx="lessonIdx" :lesson-name="lesson">
             <button class="text-green-600 hover:text-green-900 dark:hover:text-green-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-opacity-50 focus-visible:ring-green-600" @click="clickHandler">Деталі</button>
           </Details>

@@ -14,5 +14,5 @@ const code = ref(twemoji.convert.toCodePoint(props.icon))
 </script>
 
 <template>
-  <img class="h-[1em] w-auto inline relative -top-[0.1em]" :src="'https://twemoji.maxcdn.com/v/latest/svg/' + code + '.svg'" alt="">
+  <img class="h-[1em] w-auto inline relative -top-[0.1em]" :src="'https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/' + code + '.svg'" alt="">
 </template>

@@ -34,7 +34,7 @@ const getHomeworkPreview = (lessonIdx: number): HomeworkPreview => {
 </script>
 
 <template>
-  <div :class="day.lessons.length - 1 ? 'bg-white dark:bg-zinc-800' : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'" class="overflow-hidden shadow ring-1 ring-black dark:ring-zinc-600 ring-opacity-5 dark:ring-opacity-80 md:rounded-2xl">
+  <div :class="day.lessons.length - 1 ? 'bg-white dark:bg-zinc-800' : 'bg-gray-50 dark:bg-zinc-900 dark:bg-opacity-50'" class="overflow-hidden shadow ring-1 ring-black dark:ring-zinc-600 ring-opacity-5 dark:ring-opacity-80 md:rounded-xl">
     <table class="max-w-full divide-y divide-gray-200 dark:divide-zinc-700 table-fixed">
       <thead class="bg-white dark:bg-zinc-800">
       <tr>

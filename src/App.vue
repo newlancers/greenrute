@@ -30,7 +30,7 @@ onMounted(() => {
   changeTheme(true, themeStore)
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeListener)
 
-  fetch('https://api.greenrute.com/v1')
+  fetch('https://raw.githubusercontent.com/nazar1ua/vue-schedule/main/src/assets/lessons.json')
     .then(r => r.json())
     .then((r: Lessons): void => {
       lessons.value = r

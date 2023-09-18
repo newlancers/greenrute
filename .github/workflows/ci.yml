@@ -27,7 +27,7 @@ jobs:
       - name: Add CNAME
         run: |
           cd dist
-          echo "greenrute.com" > CNAME
+          echo "old.greenrute.com" > CNAME
           cd ..
 
       - name: Push
